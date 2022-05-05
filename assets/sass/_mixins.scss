@@ -1,0 +1,57 @@
+
+
+//create dynamic border
+
+@mixin border($brdWidth,$color) {
+    border:  $brdWidth solid $red;
+}
+
+// create responsive font size 
+
+@mixin fontSize($width) {
+    @if($width == "large"){
+        .logo-text{
+            font-size: 64px;
+        }
+        .section_title{
+            font-size: 48px;
+        }
+        .section_subtitle{
+            font-size: 34px;
+        }
+    }
+    @else if($width == "medium"){
+        .logo-text{
+            font-size: 48px;
+        }
+        .section_title{
+            font-size: 34px;
+        }
+        .section_subtitle{
+            font-size: 26px;
+        }
+    }
+    @else{
+        .logo-text{
+            font-size: 30px;
+        }
+        .section_title{
+            font-size: 24px;
+        }
+        .section_subtitle{
+            font-size: 18px;
+        }
+    }
+}
+
+//create dynamic theme
+
+@mixin theme($property,$light,$dark){
+    @if($current-theme == "light"){
+        #{$property} : $light;
+    }
+    @else{
+        #{$property} : $dark;
+    }
+}
+
