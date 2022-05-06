@@ -1,5 +1,91 @@
 @import "resetCode" ;
 @import "veriables" ;
 @import "mixins" ;
-@import "classes" ;
 
+/*=================HEADER SECTION LAYOUT DESIGN===============================*/
+#header{
+
+    /*====== social links style =======*/
+
+    .social {
+        column-gap: 10px;
+        li{
+            
+            a{
+                display: inline-block;
+                background-color: $link-light;
+                padding: 10px;
+                transition: .4s all ease-in-out;
+                font-size: 20px;
+                border-radius: 50%;
+                line-height: 0;
+                color: $dark-color;
+                &:hover{
+                    background-color: $link-light-active;
+                }
+            }
+        }
+    }
+
+    /*====== social links style =======*/
+    .navbar{
+        @include border(1px , $border-light);
+        margin: 20px 0;
+        ul li a{
+            position: relative;
+            display: inline-block;
+            padding: 0;
+            margin: 10px;
+            color:$link-light;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: .4s;
+            &.active,
+            &:hover{
+                color:$link-light-active;
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                bottom: -1px;
+                left:0;
+                width: 0;
+                height: 2px;
+                background-color: $link-light-active;
+                transition: .4s;
+            }
+            &.active::after,
+            &:hover::after{
+                width: 100%;
+            }
+        }
+    }
+}
+
+/*=================HERO SECTION LAYOUT DESIGN===============================*/
+
+#hero{
+    @include background('../img/hero_bg.jpg');
+    height: 450px;
+    .hero_content{
+        width: 100%;
+        height: inherit;
+        padding: 40px 0;
+        .hero_details{
+            display: inline-block;
+            background-color: $hero_details;
+            padding:20px;
+            h2,h3,p{
+                margin:  20px;
+            }
+            h2{
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+            p{
+                font-size: $small-size;
+            }
+        }
+    }
+
+}
