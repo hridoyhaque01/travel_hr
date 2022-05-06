@@ -1,4 +1,5 @@
 
+
 //create dynamic border
 
 @mixin border($brdWidth,$color) {
@@ -45,11 +46,10 @@
 
 //create dynamic theme
 
-@mixin theme($property,$light,$dark){
-    @if($current-theme == "light"){
+@mixin theme($property,$bgcolor,$light,$dark){
+    @if($bgcolor == "light"){
         #{$property} : $light;
-    }
-    @else{
+    }@else{
         #{$property} : $dark;
     }
 }
