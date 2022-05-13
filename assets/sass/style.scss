@@ -1,95 +1,247 @@
-@import "mixins";
-@import "veriables";
-@import "resetCode";
+@import "base/mixins";
+@import "base/veriables";
+@import "base/resetCode";
 
 
-/*=================HEADER SECTION LAYOUT DESIGN===============================*/
-#header{
+/*=================HEADER SUBMENU LAYOUT DESIGN===============================*/
 
-    /*====== social links style =======*/
-
-    .social {
-        column-gap: 10px;
-        li{
-            
-            a{
-                display: inline-block;
-                background-color: $dark;
-                padding: 10px;
-                transition: .4s all ease-in-out;
-                font-size: 20px;
-                border-radius: 50%;
-                line-height: 0;
-                color: $light;
-                &:hover{
-                    background-color: $link-active;
-                }
+.social{
+    li{
+        margin: 0 2px;
+        a{
+            font-size: 22px;
+            background-color: $dark-fade;
+            padding: 6px 10px;
+            border-radius: 50%;
+            color:$light;
+            transition: .3s ease;
+            &:hover{
+                background-color: $link-active;
             }
         }
+    }       
+}
+
+.header_submenu{
+    .logo-text{
+        font-size: 68px;
     }
+    @extend .social;
+}
 
-    /*====== social links style =======*/
-    .navbar{
-        @include border(1px , $border-light);
-        margin: 20px 0;
+#header{
+    padding: 15px 0;
+    background-color: $light;
+    nav{
+        ul{
+            li{
+                margin: 0 10px;
+                a{
+                    position: relative;
+                    font-size: 18px;
+                    padding: 0;
+                    text-transform: capitalize;
+                    color:$dark;
+                    font-weight: 500;
+                    transition: .3s;
+                    
+                    &::after{
+                        position: absolute;
+                        content: "";
+                        bottom: 0;
+                        left: 0;
+                        width:0;
+                        height: 2px;
+                        background-color: $link-active;
+                        transition: .3s;
 
-        ul li a{
-            position: relative;
-            display: inline-block;
-            padding: 0;
-            margin: 10px;
-            color:$dark;
-            text-transform: uppercase;
-            font-weight: 500;
-            transition: .4s;
-            &.active,
-            &:hover{
-                color:$link-active;
-            }
-            &::after{
-                content: "";
-                position: absolute;
-                bottom: -1px;
-                left:0;
-                width: 0;
-                height: 2px;
-                background-color: $link-active;
-                transition: .4s;
-            }
-            &.active::after,
-            &:hover::after{
-                width: 100%;
+                    }
+                    &.active,
+                    &:hover{
+                        color:$link-active;
+                    }
+
+                    &.active::after,
+                    &:hover::after{
+                        width: 85%;
+                    }
+                }
             }
         }
     }
 }
 
-// body{
-//     @include theme(background-color,light,$light-bg,$dark-bg);
-//     @include theme(color,dark,$dark-color,$dark-bg,)
-// }
-/*=================HERO SECTION LAYOUT DESIGN===============================*/
+/*=======================> HERO SECTION LAYOUT DESIGN <========================*/
 
 #hero{
-    @include background('../img/hero_bg.jpg');
-    height: 450px;
+    height:470px;
     .hero_content{
         width: 100%;
-        height: inherit;
-        padding: 40px 0;
+        height: 100%;
         .hero_details{
-            display: inline-block;
             background-color: $hero_details;
-            padding:20px;
-            h2,h3,p{
-                margin:  20px;
-            }
+            border-radius: 10px;
             h2{
+                font-size: 36px;
+                line-height: 46px;
                 text-transform: uppercase;
+                font-weight: 700;
                 letter-spacing: 2px;
+            }
+            h3{
+                font-size: 28px;
+                line-height: 35px;
+            }
+            p{
+                font-size: $extra-small;
+            }
+        }
+    }
+}
+
+/*=======================> WORK SECTION LAYOUT DESIGN <========================*/
+
+#work{
+    .working{
+        background-color: $dark;
+        padding: 40px 20px;
+        h2{
+            color:$light;
+            text-transform: capitalize;
+            font-size: 36px;
+        }
+        a{
+            background-color: $light;
+            padding: 8px 20px;
+            color:$link-active;
+            text-transform: capitalize;
+            transition: .3s;
+            &:hover{
+                background-color: $link-active;
+                color: $light;
+            }
+        }
+    }
+}
+
+/*=======================> BLOG SECTION LAYOUT DESIGN <========================*/
+
+#blog {
+
+    .single-blog{
+        text-align: center;
+        .blog-img{
+            height: 280px;
+        }
+        .blog-details{
+            position: relative;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            background-color: $light;
+            margin: -80px 45px 30px 45px;
+            .tracking{
+                position: absolute;
+                top:-20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: $link-active;
+                padding: 6px 30px;
+                color:$light;
+                font-size: 18px;
+                text-transform: capitalize;
+            }
+            h4{
+                margin:20px 0 ;
+                font-size: 20px;
+                a{
+                    color:$dark-fade;
+                    transition: .3s;
+                    &:hover{
+                        color:$link-active
+                    }
+                }
             }
             p{
                 font-size: $small-size;
+                font-weight: 500;
+                color:$dark-fade;
+            }
+            .time{
+                margin-top: 20px;
+                a{
+                    display: flex;
+                    align-items: center;
+                    column-gap: 8px;
+                    color:$link-active;
+                    i{
+                        font-size: 24px;
+                    }
+
+                }
+            }
+        }
+    }
+
+    .pagination{
+        .page-item{
+            a{
+                box-shadow: none;
+            }
+            &.active{
+                a{
+                    background-color: $link-active !important;
+                    border: 0;
+                }
+            }
+        }
+    }
+
+    .blog-posts {
+        .about-me{
+            .card{
+                .card-body{
+                    p{
+                        font-size: $small-size;
+                        font-weight: 500;
+                        color:$dark-fade;
+                    }
+                    h4{
+                        text-transform: uppercase;
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
+                    h6{
+                        font-size: $small-size;
+                        text-transform: uppercase;
+                    }
+                    .social{
+                        margin: 20px 0;
+                        @extend .social;
+                        li{
+                            a{
+                                padding: 4px 7px;
+                                font-size: $normal-size;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .promo{
+            .promo-details{
+                height: 200px;
+                background-position: center;
+                background-size: cover;
+                object-fit: cover;
+                border-radius: 4px;
+                .promo-text{
+                    h4{
+                        color:$light;
+                        font-size: 20px;
+                        font-weight: 700;
+                    }
+                }
             }
         }
     }

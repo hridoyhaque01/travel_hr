@@ -16,7 +16,6 @@ ul{
 
 body{
     font-family: 'Open Sans', sans-serif;
-    @include fontSize("large");
 }
 
 ul li{
@@ -27,6 +26,10 @@ i{
     line-height: 0;
 }
 
+a{
+    text-decoration: none;
+}
+
 section{
     position: relative;
     overflow: hidden !important;
@@ -34,16 +37,22 @@ section{
 }
 
 .row{
-    margin-left: 0 !important;
-    margin-right:  0 !important;
+    justify-content: center;
 }
 
 .logo-color{
     color: $link-active;
 }
 
-@media only screen and (min-width : 992px)  {
-        .container {
-            max-width: 70%;
-        }
+.btn-blog{
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: $dark;
+    color:$light;
+    margin-bottom: 15px;
+    transition: .3s;
+    &:hover{
+        background-color: $dark-fade;
+        color:$light;
+    }
 }
